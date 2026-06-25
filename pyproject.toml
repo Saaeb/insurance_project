@@ -5,11 +5,13 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "category-encoders>=2.9.0",
     "jupyter>=1.1.1",
     "matplotlib>=3.11.0",
     "numpy>=2.5.0",
     "pandas>=3.0.3",
     "plotly>=6.8.0",
     "scikit-learn>=1.9.0",
+    "scikit-optimize>=0.10.2",
     "xgboost>=3.3.0",
 ]
