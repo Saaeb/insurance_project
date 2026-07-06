@@ -1,20 +1,20 @@
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, mean_absolute_percentage_error
-import plotly.graph_objects as go
+from sklearn.metrics import root_mean_squared_error,mean_absolute_error, mean_squared_error, r2_score, mean_absolute_percentage_error
 from plotly.subplots import make_subplots
 import pandas as pd
 
 
-def calc_model_performance(y_true, y_pred):
-    results = {}
-    results['Root Mean Squared Error'] = mean_squared_error(
-        y_true, y_pred, squared=False
+def calc_model_performance(y_true,y_pred):
+    
+    results={}
+    results['Root Mean Squared Error'] = root_mean_squared_error (
+        y_true,y_pred
     )
-    results['Mean Squared Error'] = mean_squared_error(y_true, y_pred)
-    results['Mean Absolute Error'] = mean_absolute_error(y_true, y_pred)
-    results['Mean Absolute Percentage Error'] = mean_absolute_percentage_error(
-        y_true, y_pred
+    results['Mean Squared Error'] = mean_squared_error(y_true,y_pred)
+    results['Mean Absolute Error']= mean_absolute_error(y_true,y_pred)
+    results['Mean Absolute Percentage Error'] = mean_absolute_percentage_error (
+        y_true,y_pred
     )
-    results['R Squared'] = r2_score(y_true, y_pred)
+    results [ 'R Squared'] = r2_score(y_true,y_pred)
     return results
 
 
@@ -32,27 +32,6 @@ def compare_model_performance(base_perf, new_perf):
     return results
 
 
-# def compare_homoscedasticity(y_true, y_pred_base, y_pred_new):
-#     res_base = y_true-y_pred_base
-#     res_new = y_true-y_pred_new
-#     fig = make_subplots(rows=1, cols=1)
-#     fig.add_trace(
-#         go.Scatter(
-#             x=y_true,
-#             y=res_base,
-#             name='base',
-#             mode='markers'
-#         )
-#     )
-#     fig.add_trace(
-#         go.Scatter(
-#             x=y_true,
-#             y=res_new,
-#             name='new',
-#             mode='markers'
-#         )
-#     )
-#     fig.show()
 
 def calc_preds_in_residual_range(y_true, y_pred, range_):
     residuals = abs(y_true - y_pred)
