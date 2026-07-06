@@ -1,7 +1,8 @@
-.venv/
-__pycache__/
-*.pyc
-.ipynb_checkpoints/# Python-generated files
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Python-generated files and caches
 __pycache__/
 *.py[oc]
 build/
@@ -10,7 +11,10 @@ wheels/
 *.egg-info
 
 # Virtual environments
-.venv
+.venv/
+venv/
+env/
+
 # Data files
 data/
 *.csv
